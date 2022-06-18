@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { onSnapshot, collection } from 'firebase/firestore';
 import db from "../api/firebaseConfig";
 import "./graph.css";
@@ -33,7 +34,7 @@ function Graph() {
   console.log(doList);
 
   const data = {
-    labels: ["1","2","3"],
+    labels: tdsList,
     datasets: [{
       label: 'My First Dataset',
       data: doList,
@@ -46,10 +47,22 @@ function Graph() {
   return (
   <div className='container'>
     <h1>Statistics</h1>
-    <Line data={data}/>
-    <Line data={data}/>
-    <Line data={data}/>
-    <Line data={data}/>
+    <div class="row">
+      <div class="col"> 
+        <Line data={data}/>
+      </div>
+      <div class="col"> 
+        <Line data={data}/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"> 
+        <Line data={data}/>
+      </div>
+      <div class="col"> 
+        <Line data={data}/>
+      </div>
+    </div>
   </div>
   );
 }
