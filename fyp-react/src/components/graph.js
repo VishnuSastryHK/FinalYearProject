@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { onSnapshot, collection } from 'firebase/firestore';
-//import {line} from "react-chartjs-2";
 import db from "../api/firebaseConfig";
+import "./graph.css";
+import {Line} from "react-chartjs-2";
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
+
 
 function Graph() {
 
@@ -16,18 +20,38 @@ function Graph() {
       ),
     []
   );
+  let tdsList=[]
+  let doList=[]
+  // eslint-disable-next-line array-callback-return
+  waterData.map((data) => {
+    tdsList.push(data.tds);
+    doList.push(data.do);
+  });
   
   console.log(waterData);
+  console.log(tdsList);
+  console.log(doList);
 
-  return <div>
-            <h1>Graph</h1>
-            {waterData.map((data) =>(
-              <li key={data.tds}>
-              {
-              console.log(data.tds)}
-            </li>
-            ))}
-        </div>;
+  const data = {
+    labels: ["1","2","3"],
+    datasets: [{
+      label: 'My First Dataset',
+      data: doList,
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)'
+    }]
+  };
+  console.log(data);
+
+  return (
+  <div className='container'>
+    <h1>Statistics</h1>
+    <Line data={data}/>
+    <Line data={data}/>
+    <Line data={data}/>
+    <Line data={data}/>
+  </div>
+  );
 }
 
 export default Graph;
