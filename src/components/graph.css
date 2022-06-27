@@ -8,3 +8,24 @@
     justify-elements: center;
     width: 50%;
 }
+.modal{
+    top: 50%;
+    bottom: 50%;
+    width: 50%;
+    height: 50%;
+}
+.cross{
+    float: right;
+}
+.modal_data{
+    display: flexbox;
+    align-items: center;
+    margin: auto;
+}
+table{
+    font-size: 18px;
+}
+td,th{
+    padding: 6px;
+    padding-right: 50px;
+}
