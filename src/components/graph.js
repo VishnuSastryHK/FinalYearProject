@@ -11,8 +11,7 @@ Chart.register(...registerables);
 
 function Graph() {
 
-  const [modalIsOpen,setModalIsOpen] = useState(true)
-  ;
+  const [modalIsOpen,setModalIsOpen] = useState(true) ;
 
   const setModalIsOpenToTrue =()=>{
       setModalIsOpen(true)
@@ -23,7 +22,6 @@ function Graph() {
   }
 
   const [waterData, setWaterData] = useState([{ name: "Loading...", id: "initial" }]);
-  //const [dox, setDox] = useState([]);
   console.log(db);
   useEffect(
     () =>
