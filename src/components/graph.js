@@ -47,7 +47,8 @@ function Graph() {
       label: 'Dissolved Oxygen(DO)',
       data: doList,
       fill: true,
-      borderColor: 'rgb(75, 192, 192)'
+      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: 'rgba(255, 99, 132, 0.2)'
     }]
   };
   const data_tds = {
@@ -56,7 +57,8 @@ function Graph() {
       label: 'TDS',
       data: tdsList,
       fill: true,
-      borderColor: 'rgb(75, 192, 192)'
+      borderColor: 'rgba(255, 206, 86, 1)',
+      backgroundColor: 'rgba(255, 206, 86, 0.2)'
     }]
   };
   const data_turbidity = {
@@ -65,7 +67,8 @@ function Graph() {
       label: 'Turbidity',
       data: turbidityList,
       fill: true,
-      borderColor: 'rgb(75, 192, 192)'
+      borderColor: 'rgba(153, 102, 255, 1)',
+      backgroundColor: 'rgba(153, 102, 255, 0.2)',
     }]
   };
   const data_ph = {
@@ -74,7 +77,8 @@ function Graph() {
       label: 'pH',
       data: phList,
       fill: true,
-      borderColor: 'rgb(75, 192, 192)'
+      borderColor: 'rgba(75, 192, 192, 1)',
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
     }]
   };
   const data_temp = {
@@ -83,7 +87,8 @@ function Graph() {
       label: 'Temperature',
       data: tempList,
       fill: true,
-      borderColor: 'rgb(75, 192, 192)'
+      borderColor: 'rgba(255, 159, 64, 1)',
+      backgroundColor: 'rgba(255, 159, 64, 0.2)',
     }]
   };
 
