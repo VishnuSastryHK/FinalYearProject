@@ -21,46 +21,98 @@ function Graph() {
       ),
     []
   );
-  let tdsList=[]
-  let doList=[]
+  let doList=[];
+  let tdsList=[];
+  let turbidityList=[];
+  let phList=[];
+  let tempList=[];
+  let timestampList=[];
   // eslint-disable-next-line array-callback-return
   waterData.map((data) => {
-    tdsList.push(data.tds);
     doList.push(data.do);
+    tdsList.push(data.tds);
+    turbidityList.push(data.turbidity);
+    phList.push(data.ph);
+    tempList.push(data.temp);
+    timestampList.push(data.timestamp);
   });
   
   console.log(waterData);
-  console.log(tdsList);
-  console.log(doList);
+  console.log(timestampList);
+  console.log(turbidityList);
 
-  const data = {
-    labels: tdsList,
+  const data_do = {
+    labels: timestampList,
     datasets: [{
-      label: 'My First Dataset',
+      label: 'Dissolved Oxygen(DO)',
       data: doList,
-      fill: false,
+      fill: true,
       borderColor: 'rgb(75, 192, 192)'
     }]
   };
-  console.log(data);
+  const data_tds = {
+    labels: timestampList,
+    datasets: [{
+      label: 'TDS',
+      data: tdsList,
+      fill: true,
+      borderColor: 'rgb(75, 192, 192)'
+    }]
+  };
+  const data_turbidity = {
+    labels: timestampList,
+    datasets: [{
+      label: 'Turbidity',
+      data: turbidityList,
+      fill: true,
+      borderColor: 'rgb(75, 192, 192)'
+    }]
+  };
+  const data_ph = {
+    labels: timestampList,
+    datasets: [{
+      label: 'pH',
+      data: phList,
+      fill: true,
+      borderColor: 'rgb(75, 192, 192)'
+    }]
+  };
+  const data_temp = {
+    labels: timestampList,
+    datasets: [{
+      label: 'Temperature',
+      data: tempList,
+      fill: true,
+      borderColor: 'rgb(75, 192, 192)'
+    }]
+  };
 
   return (
   <div className='container'>
-    <h1>Statistics</h1>
+    <br></br>
+    <center><h1>Statistics</h1></center>
     <div class="row">
       <div class="col"> 
-        <Line data={data}/>
+        <Line data={data_do}/>
       </div>
       <div class="col"> 
-        <Line data={data}/>
+        <Line data={data_tds}/>
       </div>
     </div>
     <div class="row">
       <div class="col"> 
-        <Line data={data}/>
+        <Line data={data_turbidity}/>
       </div>
       <div class="col"> 
-        <Line data={data}/>
+        <Line data={data_ph}/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"> 
+        <Line data={data_temp}/>
+      </div>
+      <div class="col"> 
+        {/* <Line data={data_ph}/> */}
       </div>
     </div>
   </div>

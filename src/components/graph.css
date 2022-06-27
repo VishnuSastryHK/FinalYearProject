@@ -1,0 +1,10 @@
+.row{
+    margin-top: 40px;
+}
+.col{
+    display:flex;
+    align-items: center;
+    margin:20px 50px;
+    justify-elements: center;
+    width: 50%;
+}
