@@ -16,6 +16,15 @@
 }
 .cross{
     float: right;
+    width: 20px;
+    height: 20px;
+    padding: -5px 0 0 0;
+    margin: 0 0 0 0;
+    color: black;
+    font-weight: bold;
+    background: none;
+    border: none;
+
 }
 .modal_data{
     display: flexbox;

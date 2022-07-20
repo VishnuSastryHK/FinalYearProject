@@ -8,7 +8,6 @@ import {Line} from "react-chartjs-2";
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-
 function Graph() {
 
   const [modalIsOpen,setModalIsOpen] = useState(true) ;
@@ -157,6 +156,10 @@ function Graph() {
       
   }
 
+  const current = new Date();
+  const todaysDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+
   const customStyles = {
     content : {
       top                   : '50%',
@@ -165,12 +168,15 @@ function Graph() {
       bottom                : 'auto',
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
-      backgroundColor       : '#F7CAC9',      
+      backgroundColor       : '#EAEAEA',      
       //width:'50%',
-      height: '50%',
+      //height: '50%',
       border: 'black',
     }
 };
+const hrStyle={
+  marginRight: '-100px;'
+}
 
   return (
   <>
@@ -207,27 +213,30 @@ function Graph() {
     </center>
 
     <Modal isOpen={modalIsOpen} style={customStyles} id="modal" onRequestClose={()=> setModalIsOpen(false)}>
-       <right><button className='cross' onClick={setModalIsOpenToFalse}>x</button></right>
+       <right><button className='cross' onClick={setModalIsOpenToFalse}>X</button></right>
        <div className='modal_data'>
        <center>
+        <br>
+        </br>
         <h2>Latest Data</h2>
+        <h6>Data fetched at: {timestampList.at(-1)}, {todaysDate}</h6>
         <hr></hr>
         <table>
           <tr>
             <th>Parameter</th>
-            <th>Values</th>
+            <th>Value</th>
           </tr>
           <tr>
-            <td>Dissolved Oxygen</td>
-            <td>{doList.at(-1)}</td>
+            <td>DO</td>
+            <td>{doList.at(-1)}  mg/l</td>
           </tr>
           <tr>
             <td>TDS</td>
-            <td>{tdsList.at(-1)}</td>
+            <td>{tdsList.at(-1)} mg/l</td>
           </tr>
           <tr>
             <td>Turbidity</td>
-            <td>{turbidityList.at(-1)}</td>
+            <td>{turbidityList.at(-1)} NTU</td>
           </tr>
           <tr>
             <td>pH</td>
@@ -235,7 +244,12 @@ function Graph() {
           </tr>
           <tr>
             <td>Temperature</td>
-            <td>{tempList.at(-1)}</td>
+            <td>{tempList.at(-1)} ºC</td>
+          </tr>
+          <hr style={{marginRight:'-105px'}}></hr>
+          <tr>
+            <td><h6>Calculated WQI</h6></td>
+            <td><h6>{wqiList.at(-1)}</h6></td>
           </tr>
         </table>
         </center>
